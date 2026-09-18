@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <div>
+                    <h1>Library Management</h1>
+                    <p>Book Search & Availability</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="dashboard">
+
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div>
+                    <h3 id="totalBooks">0</h3>
+                    <p>Total Books</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon available">✓</div>
+                <div>
+                    <h3 id="availableBooks">0</h3>
+                    <p>Available</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon issued">📖</div>
+                <div>
+                    <h3 id="issuedBooks">0</h3>
+                    <p>Issued</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="search-section">
+
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by title, author or book ID..."
+                >
+            </div>
+
+            <div class="filter-box">
+
+                <select id="categoryFilter">
+
+                    <option value="all">All Categories</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Science">Science</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Literature">Literature</option>
+                    <option value="History">History</option>
+                    <option value="General">General</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+        <section class="result-header">
+
+            <div>
+                <h2>Book Collection</h2>
+                <p id="resultCount">Showing 0 books</p>
+            </div>
+
+        </section>
+
+        <section id="bookContainer" class="book-grid"></section>
+
+        <div id="noResults" class="no-results">
+
+            <div>📚</div>
+            <h3>No books found</h3>
+            <p>Try changing your search or category filter.</p>
+
+        </div>
+
+    </main>
+
+    <div id="detailsModal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="closeDetails()">×</button>
+
+            <div id="bookDetails"></div>
+
+        </div>
+
+    </div>
+
+    <div id="issueModal" class="modal">
+
+        <div class="modal-content small-modal">
+
+            <button class="close-button" onclick="closeIssueModal()">×</button>
+
+            <h2>Issue Book</h2>
+
+            <p id="issueBookName"></p>
+
+            <form id="issueForm">
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Student ID"
+                    required
+                >
+
+                <button type="submit" class="primary-button">
+                    Issue Book
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
